@@ -10,7 +10,9 @@
  */
 package ean.programacionavanzada.taller
 
+import ean.collections.ArrayList
 import ean.collections.IGraph
+import ean.collections.IList
 import jdk.nashorn.internal.ir.annotations.Ignore
 
 /**
@@ -19,24 +21,24 @@ import jdk.nashorn.internal.ir.annotations.Ignore
 
 object TallerCiudades {
     /* Cuantas ciudades de colombia se fundaron en el siglo XVI? */
-    fun contarCiudadesSigloXVI(g:IGraph<Int,Ciudad,Int>):Int{
+    fun contarCiudadesSigloXVI(g: IGraph<Int, Ciudad, Int>): Int {
         var c = 0
-        for(ident in g.vertices){
+        for (ident in g.vertices) {
             val ciu: Ciudad = g[ident]
-            if (ciu.pais.toUpperCase()== "COLOMBIA" && ciu.añoFundacion in 1500 .. 1599){
+            if (ciu.pais.toUpperCase() == "COLOMBIA" && ciu.añoFundacion in 1500..1599) {
                 c++
             }
         }
         return c
     }
 
-    fun ciudadConMasVecinos(g:IGraph<Int,Ciudad,Int>):String{
+    fun ciudadConMasVecinos(g: IGraph<Int, Ciudad, Int>): String {
         var nombreCiudadConMasVecinos = ""
         var numVecinosMayor = 0
 
-        for (v in g.vertices){
+        for (v in g.vertices) {
             val NV = g.degree(v)
-            if(NV > numVecinosMayor){
+            if (NV > numVecinosMayor) {
                 numVecinosMayor = NV
                 nombreCiudadConMasVecinos = g[v].nombre
             }
@@ -44,8 +46,52 @@ object TallerCiudades {
         return nombreCiudadConMasVecinos
     }
 
-    fun nombreCiudad(g:IGraph<Int,String,Int>):String{
+    fun nombreCiudadMasCercana(g: IGraph<Int, Ciudad, Int>, nom: String): String {
+        var bandera = 100000000
+        var bandera2 = ""
+        for (i in g.vertices) {
+            var ciudad = g.getVertex(i)
+            if (ciudad.nombre == nom) {
+                var veci = g.neighbors(ciudad.identificador)
+                for (i in veci) {
+                    if (g.existsEdge(ciudad.identificador, i)) {
+                        var x = g.getEdge(ciudad.identificador, i)
+                        if (x < bandera) {
+                            bandera = x
+                            bandera2 = g.getVertex(i).nombre
+                        }
+                    }
+                }
+            }
+        }
+        return bandera2
+    }
 
+    fun listaFronterizas(g: IGraph<Int, Ciudad, Int>):IList<String>{
+        var bandera:IList<String> = ArrayList()
+        for (i in g.vertices){
+            var ciudad = g.getVertex(i).nombre
+            if (esFronteriza(g,ciudad)) {
+                bandera.add(ciudad)
+            }
+        }
+        return bandera
+    }
+
+    fun esFronteriza(g: IGraph<Int, Ciudad, Int>,nom: String): Boolean {
+        var bandera = false
+        for (i in g.vertices) {
+            var ciudad = g.getVertex(i)
+            if (ciudad.nombre == nom) {
+                var veci = g.neighbors(ciudad.identificador)
+                for (i in veci){
+                    if (g.getVertex(i).pais != ciudad.pais){
+                        bandera = true
+                    }
+                }
+            }
+        }
+        return bandera
     }
 }
 

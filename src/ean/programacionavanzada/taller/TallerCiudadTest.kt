@@ -5,6 +5,7 @@ import ean.collections.IGraph
 import org.testng.annotations.BeforeSuite
 import org.testng.annotations.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 internal class TallerCiudadTest {
     val grafo: IGraph<Int, Ciudad, Int> = Graph()
@@ -28,4 +29,18 @@ internal class TallerCiudadTest {
         assertEquals(4,TallerCiudades.contarCiudadesSigloXVI(grafo))
     }
 
+    @Test
+    fun pruebaNombreVecinoMasCorto(){
+        assertEquals("Cali",TallerCiudades.nombreCiudadMasCercana(grafo,"Quito"))
+    }
+
+    @Test
+    fun pruebaEsFronteriza(){
+        assertTrue { TallerCiudades.esFronteriza(grafo,"Quito") }
+    }
+
+    @Test
+    fun pruebaCiudadesFronterizas(){
+        println(TallerCiudades.listaFronterizas(grafo))
+    }
 }
