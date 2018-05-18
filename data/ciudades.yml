@@ -1,0 +1,142 @@
+## Informacion sobre las ciudades de un pais.
+---
+ciudades:
+  - identificador: 1001
+    nombre: Bogota
+    poblacion: 7963379
+    departamento: Bogota
+    pais: Colombia
+    fundada: 1538
+    
+  - identificador: 1002
+    nombre: Medellin
+    poblacion: 2457680
+    departamento: Antioquia
+    pais: Colombia
+    fundada: 1616
+    
+  - identificador: 1003
+    nombre: Cali
+    poblacion: 2358253
+    departamento: Valle del Cauca
+    pais: Colombia
+    fundada: 1536
+    
+  - identificador: 1004
+    nombre: Cartagena
+    poblacion: 971700
+    departamento: Bolivar
+    pais: Colombia
+    fundada: 1533
+
+  - identificador: 1005
+    nombre: Santa Marta
+    poblacion: 474488
+    departamento: Magdalenda
+    pais: Colombia
+    fundada: 1525
+    
+  - identificador: 1006
+    nombre: Bucaramanga
+    poblacion: 528269
+    departamento: Santander
+    pais: Colombia
+    fundada: 1622
+
+  - identificador: 1007
+    nombre: Cucuta
+    poblacion: 656414
+    departamento: Norte de Santander
+    pais: Colombia
+    fundada: 1733
+
+  - identificador: 1008
+    nombre: San Cristobal
+    poblacion: 1348331
+    departamento: Tachira
+    pais: Venezuela
+    fundada: 1856
+    
+  - identificador: 1009
+    nombre: Quito
+    poblacion: 2589229
+    departamento: Pichincha
+    pais: Ecuador
+    fundada: 1534
+
+  - identificador: 1010
+    nombre: Oranjestad
+    poblacion: 26355
+    departamento: Aruba
+    pais: Aruba
+    fundada: 1796
+
+arcos:
+  - origen: 1001
+    destino: 1005
+    distancia: 954
+  - origen: 1001
+    destino: 1002
+    distancia: 418
+  - origen: 1001
+    destino: 1003
+    distancia: 465
+  - origen: 1001
+    destino: 1004
+    distancia: 1068
+  - origen: 1001
+    destino: 1006
+    distancia: 398
+  - origen: 1001
+    destino: 1007
+    distancia: 556
+  - origen: 1002
+    destino: 1003
+    distancia: 423
+  - origen: 1002
+    destino: 1004
+    distancia: 637
+  - origen: 1002
+    destino: 1005
+    distancia: 837
+  - origen: 1002
+    destino: 1006
+    distancia: 393
+  - origen: 1003
+    destino: 1006
+    distancia: 761
+  - origen: 1003
+    destino: 1007
+    distancia: 953
+  - origen: 1004
+    destino: 1005
+    distancia: 226
+  - origen: 1005
+    destino: 1006
+    distancia: 547
+  - origen: 1006
+    destino: 1007
+    distancia: 76
+  - origen: 1007
+    destino: 1008
+    distancia: 50
+  - origen: 1003
+    destino: 1009
+    distancia: 724
+  - origen: 1010
+    destino: 1005
+    distancia: 479
+  - origen: 1010
+    destino: 1004
+    distancia: 641
+  - origen: 1010
+    destino: 1008
+    distancia: 581
+    
+    
+
+
+
+
+
+
